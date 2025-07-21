@@ -9,8 +9,15 @@ spec:
       role: front-end
   policyTypes:
     - Ingress
+    - Egress
   ingress:
     - from:
-        - podSelector:
-            matchLabels:
-              app: front-end-app
+      - podSelector:
+          matchLabels:
+            app: front-end-app
+
+  egress:
+    - to:
+      - podSelector:
+          matchLabels:
+            role: admin-front-end
